@@ -20,12 +20,14 @@ const handleUserInput = (key) => {
     process.exit();
   }
 
+
   // if key is a move key, send the move command
   if (MOVE_KEYS[key]) {
     connection.write(`Move: ${MOVE_KEYS[key]}`);
     return;
   }
 
+  console.log(key, PLAYER_MSG[key]);
   // if key is a message key, send the message
   if (PLAYER_MSG[key]) {
     connection.write(`Say: ${PLAYER_MSG[key]}`);
