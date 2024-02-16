@@ -1,7 +1,7 @@
 const net = require("net");
 
 // establishes a connection with the game server
-const connect = function() {
+const connect = () => {
   const conn = net.createConnection({
     host: "::1",// IP address here,
     port: 50541// PORT number here,
@@ -28,4 +28,21 @@ const connect = function() {
 };
 
 
-module.exports = { connect };
+
+const setupInput = conn => {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding("utf8");
+  stdin.resume();
+  stdin.on("data", handleUserInput);
+  return stdin;
+};
+
+const handleUserInput = (key) => {
+  // check for process exit request (ctrl+c)
+  if (key === '\u0003') {
+    process.exit();
+  }
+};
+
+module.exports = { connect, setupInput };
