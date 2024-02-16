@@ -19,6 +19,14 @@ const connect = () => {
 
   conn.on("data", (data) => {
     console.log("Server says: ", data);
+
+    if (data === "you ded cuz you idled\n") {
+      process.exit();
+    }
+
+    if (data === "you crashed, so you ded.\n") {
+      process.exit();
+    }
   });
 
   return conn;
