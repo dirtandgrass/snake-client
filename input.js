@@ -1,3 +1,5 @@
+const { MOVE_KEYS, PLAYER_MSG } = require("./constants");
+
 let connection;
 
 const setupInput = (conn) => {
@@ -10,37 +12,26 @@ const setupInput = (conn) => {
   return stdin;
 };
 
+
+
 const handleUserInput = (key) => {
   // check for process exit request (ctrl+c), keep distinct for clarity
   if (key === '\u0003') {
     process.exit();
   }
 
-
-  switch (key) {
-  case "w":
-    connection.write("Move: up");
-    break;
-  case "a":
-    connection.write("Move: left");
-    break;
-  case "s":
-    connection.write("Move: down");
-    break;
-  case "d":
-    connection.write("Move: right");
-    break;
-  case "1":
-    connection.write("Say: u gonna ded!");
-    break;
-  case "2":
-    connection.write("Say: i make you ded!");
-    break;
-  case "3":
-    connection.write("Say: my snek so big!");
-    break;
-
+  // if key is a move key, send the move command
+  if (MOVE_KEYS[key]) {
+    connection.write(`Move: ${MOVE_KEYS[key]}`);
+    return;
   }
+
+  // if key is a message key, send the message
+  if (PLAYER_MSG[key]) {
+    connection.write(`Say: ${PLAYER_MSG[key]}`);
+    return;
+  }
+
 
 };
 
