@@ -48,7 +48,17 @@ Run the server and ngrok to expose the server to the internet. Then run the clie
 
 ## Usage
 
-Once the client is running, the user can control their "snake" with WASD keys. The goal is to eat the food and grow the snake. The game ends when the snake collides with itself or another snake.
+Once the client is running, the user can control their "snake" with WASD keys. The goal is to eat the food and grow the snake. The game ends when the snake collides with itself or another snake. You can also send taunting messages to other players by pressing the number keys, 1,2 and 3.
+
+* W - move up
+* A - move left
+* S - move down
+* D - move right
+* 1 - taunt 1
+* 2 - taunt 2
+* 3 - taunt 3
+
+
 
 ## Features
 
