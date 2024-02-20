@@ -12,18 +12,12 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-
-let intervalId;
+let intervalId; // store interval id for movement setInterval
 const handleUserInput = (key) => {
-
-
-
   // check for process exit request (ctrl+c), keep distinct for clarity
   if (key === '\u0003') {
     process.exit();
   }
-
-
 
   // if key is a move key, send the move command
   if (MOVE_KEYS[key]) {
@@ -42,7 +36,6 @@ const handleUserInput = (key) => {
     connection.write(`Say: ${PLAYER_MSG[key]}`);
     return;
   }
-
 
 };
 
