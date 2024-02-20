@@ -2,9 +2,40 @@
 A snake clone that runs over the network. This is a project for the Lighthouse Labs Web Development Bootcamp.
 
 
-## Running
+## Installation
+Open two seperate terminals. One for the server and one for the client.
+### Server
 
-### The server
+Clone the server project and install the dependencies.
+```sh
+  git clone git@github.com:dirtandgrass/snek-multiplayer.git
+  cd snek-multiplayer
+  npm i
+```
+### Client
+In a separatte terminal instance, Clone the client project and install the dependencies.
+```sh
+  git clone git@github.com:dirtandgrass/snake-client.git
+  cd snake-client
+  npm i
+```
+
+## Configuration
+The server and client are configured to run on localhost. To expose the server to the internet, use ngrok.
+
+To configure the client, open the client project and edit the `src/constants.js` file. Modify the following lines
+```javascript
+  const ADDRESS = '::1';
+  const PORT = 50541;
+  const PLAYER_NAME = 'L-S';
+```
+* `ADDRESS` is the address of the server. If you are running the server on the same machine, you can leave this as is.
+* `PORT` is the port the server is running on. The default is 50541.
+* `PLAYER_NAME` is the name of the player. This will be displayed on the game board. Maximum of 3 characters.
+
+
+## Running
+Run the server and ngrok to expose the server to the internet. Then run the client.
 ```sh
   npm run play
   ngrok tcp 3000
@@ -15,58 +46,29 @@ A snake clone that runs over the network. This is a project for the Lighthouse L
   npm run start
 ```
 
-## Installation
-
-
-
 ## Usage
 
-Instructions on how to use the project, including any command line options or environment variables.
+Once the client is running, the user can control their "snake" with WASD keys. The goal is to eat the food and grow the snake. The game ends when the snake collides with itself or another snake.
 
 ## Features
 
-A list of the main features of the project.
+* Multiplayer, multiple players can play at the same time.
+* Real-time updates, the game board updates in real-time.
+* Players are notified via broadcast when a player joins the game.
+* Previous more commands are automatically re-issued (like the original snake game).
 
-## API Reference
 
-If the project has an API, provide a reference or link to the API documentation.
 
-## Contributing
-
-Guidelines for contributing to the project, including information on how to submit pull requests or report issues.
-
-## License
-
-Information about the project's license.
 
 ## Authors
 
-A list of the authors or contributors to the project.
+* [dirtandgrass] Lucas *client* and *server* modification to support broadcast
 
 ## Acknowledgements
 
-Any acknowledgements or credits for external libraries, resources, or inspiration.
+* [Lighthouse Labs](https://www.lighthouselabs.ca/) for the original project and lab instruction/activity.
 
-## Related Projects
-
-If there are any related projects or repositories, provide links or references to them.
 
 ## Support
 
-Information on how to get support for the project, such as community forums or contact information.
-
-## Roadmap
-
-Future plans or features that are planned for the project.
-
-## Changelog
-
-A log of changes and updates to the project, including version numbers and release dates.
-
-## FAQ
-
-Frequently asked questions about the project.
-
-## Resources
-
-Any additional resources or references related to the project.
+support has ded
